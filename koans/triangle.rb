@@ -14,9 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a + b <= c or a + c <= b or b + c <= a
+    raise TriangleError.new("The three sides provided don't form a triangle")
+  end
+
   if a == b and b == c
     :equilateral
-  elsif a == b or b ==c or a == c
+  elsif a == b or b == c or a == c
     :isosceles
   else
     :scalene
